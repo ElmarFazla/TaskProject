@@ -1,5 +1,6 @@
 using Prism;
 using Prism.Ioc;
+using TaskProject.Core.Consts;
 using TaskProject.Core.ViewModels;
 using TaskProject.Views;
 using Xamarin.Essentials.Implementation;
@@ -19,7 +20,8 @@ namespace TaskProject
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            await NavigationService.NavigateAsync($"{Pages.NavigationPage}/{Pages.LoginPage}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,7 +29,8 @@ namespace TaskProject
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
         }
     }
 }
