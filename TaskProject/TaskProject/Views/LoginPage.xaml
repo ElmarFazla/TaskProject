@@ -1,43 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TaskProject.Views.LoginPage"
-             NavigationPage.HasNavigationBar="False">
+<ContentPage
+    x:Class="TaskProject.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
+        <StackLayout
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            BackgroundColor="{StaticResource PrimaryColor}" />
 
+        <Image
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            Source="LogoImage.png"
+            VerticalOptions="Center" />
 
-        <StackLayout Grid.Row="0" Grid.RowSpan="2" BackgroundColor="{StaticResource PrimaryColor1}"/>
-
-
-        <Image Grid.Row="0" Source="LogoImage.png" VerticalOptions="Center" HorizontalOptions="Center"/>
-
-
-        <Frame Margin="24,0" BackgroundColor="White" Grid.RowSpan="2" Grid.Row="1" CornerRadius="20">
-            <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0,20">
+        <Frame
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Margin="24,0"
+            BackgroundColor="White"
+            CornerRadius="20">
+            <Grid
+                Padding="0,20"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Entry Grid.Row="0" Placeholder="Username"></Entry>
-                <Entry Grid.Row="1" Placeholder="Password" IsPassword="True"></Entry>
-                <Label Grid.Row="2" FontSize="16" Text="Forgot Password" TextColor="{StaticResource PrimaryColor1}" HorizontalOptions="End"></Label>
-                <Button Command="{Binding LoginCommand}" Grid.Row="3" VerticalOptions="Center" BackgroundColor="{StaticResource PrimaryColor1}" Text="Login" TextColor="White"></Button>
-            </Grid>
-            
-        </Frame>
-        
-        
-    </Grid>
+                <Entry Grid.Row="0" Placeholder="Username" />
 
+                <Entry
+                    Grid.Row="1"
+                    IsPassword="True"
+                    Placeholder="Password" />
+
+                <Label
+                    Grid.Row="2"
+                    FontSize="16"
+                    HorizontalOptions="End"
+                    Text="Forgot Password"
+                    TextColor="{StaticResource PrimaryColor}" />
+
+                <Button
+                    Grid.Row="3"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    Command="{Binding LoginCommand}"
+                    Text="Login"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Frame>
+    </Grid>
 </ContentPage>

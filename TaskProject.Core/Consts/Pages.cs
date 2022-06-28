@@ -6,6 +6,8 @@
 
         public const string LoginPage = nameof(LoginPage);
 
-        public const string HomePage = nameof(HomePage);
+        public const string HomePage = nameof(HomePage); 
+
+        public const string MovieDetailsPage = nameof(MovieDetailsPage);
     }
 }

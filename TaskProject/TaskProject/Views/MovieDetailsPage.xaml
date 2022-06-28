@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaskProject.Views.MovieDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
+    Title="{Binding Title}"
+    x:DataType="vm:MovieDetailsPageViewModel">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="16,20" BackgroundColor="{StaticResource PrimaryColor}">
+                <Frame
+                    Padding="0"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="400"
+                        Margin="-16"
+                        HorizontalOptions="FillAndExpand"
+                        Source="{Binding MovieDetails.Poster}"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="290" />
+                </Frame>
+
+                <Label
+                    Margin="0,16,0,0"
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    LineBreakMode="TailTruncation"
+                    TextColor="White">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding MovieDetails.Title}" />
+                            <Span Text="{Binding MovieDetails.Year, StringFormat=' ({0})'}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="{Binding MovieDetails.Director, StringFormat='Director: {0}'}" TextColor="White" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding MovieDetails.imdbRating}" TextColor="White" />
+                    <Image HeightRequest="14" Source="star.png" />
+                </StackLayout>
+
+                <Label Text="Synopsis" FontAttributes="Bold" TextColor="White" />
+                <Label Text="{Binding MovieDetails.Plot}" TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
