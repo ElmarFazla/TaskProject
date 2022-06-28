@@ -1,13 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="{Binding Title}"
-             x:Class="TaskProject.Views.HomePage">
+<ContentPage
+    x:Class="TaskProject.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TaskProject.Core.Models;assembly=TaskProject.Core"
+    xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
+    x:Name="rootView"
+    Title="{Binding Title}"
+    x:DataType="vm:HomePageViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="HomePage"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView BackgroundColor="{StaticResource PrimaryColor}">
+            <StackLayout Spacing="0">
+                <SearchBar
+                    Margin="16,0"
+                    BackgroundColor="White"
+                    Placeholder="Search movies..."
+                    SearchCommand="{Binding SearchCommand}"
+                    Text="{Binding SearchText}" />
+                <StackLayout
+                    Padding="16"
+                    BindableLayout.ItemsSource="{Binding Movies}"
+                    Spacing="8">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="models:Movie">
+                            <Frame
+                                Padding="0,0,12,0"
+                                CornerRadius="20"
+                                HasShadow="False">
+                                <Grid ColumnSpacing="12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        Text="{Binding Title}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontSize="14"
+                                        Text="{Binding Year, StringFormat='Year: {0}'}" />
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        Margin="-2,0,0,-8"
+                                        HorizontalOptions="StartAndExpand"
+                                        Source="{Binding Poster}"
+                                        VerticalOptions="StartAndExpand" />
+                                </Grid>
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference rootView}, Path=BindingContext.OpenMovieDetailsCommand}"
+                                        CommandParameter="{Binding ImdbID}"
+                                        NumberOfTapsRequired="1" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

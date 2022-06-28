@@ -1,5 +1,7 @@
 using Prism;
 using Prism.Ioc;
+using TaskProject.Core.Api;
+using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Consts;
 using TaskProject.Core.ViewModels;
 using TaskProject.Views;
@@ -20,17 +22,18 @@ namespace TaskProject
         {
             InitializeComponent();
 
-            //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
             await NavigationService.NavigateAsync($"{Pages.NavigationPage}/{Pages.LoginPage}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.RegisterSingleton<IMovieApi, MovieApi>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<MovieDetailsPage, MovieDetailsPageViewModel>();
         }
     }
 }

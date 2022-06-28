@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
-                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
-                        xmlns:resources="clr-namespace:TaskProject.Common.Resources"
-                        x:Class="TaskProject.App">
-  <Application.Resources>
+<prism:PrismApplication
+    x:Class="TaskProject.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+    xmlns:resources="clr-namespace:TaskProject.Common.Resources">
+    <Application.Resources>
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -12,7 +13,7 @@
                 <resources:Colors />
             </ResourceDictionary.MergedDictionaries>
 
-            <Color x:Key="PrimaryColor1">#5b90dc</Color>
+            <Color x:Key="PrimaryColor">#5b90dc</Color>
         </ResourceDictionary>
 
     </Application.Resources>
