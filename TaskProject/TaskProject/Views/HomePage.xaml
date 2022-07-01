@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<views:PageBase
     x:Class="TaskProject.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:TaskProject.Core.Models;assembly=TaskProject.Core"
+    xmlns:views="clr-namespace:TaskProject.Views"
     xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
     x:Name="rootView"
     Title="{Binding Title}"
-    x:DataType="vm:HomePageViewModel">
-    <ContentPage.Content>
+    x:DataType="vm:HomePageViewModel"
+    IsLoading="{Binding IsLoading}">
+
+    <views:PageBase.MainContent>
         <ScrollView BackgroundColor="{StaticResource PrimaryColor}">
-            <StackLayout Spacing="0">
+            <StackLayout>
                 <SearchBar
                     Margin="16,0"
                     BackgroundColor="White"
@@ -70,5 +73,5 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-    </ContentPage.Content>
-</ContentPage>
+    </views:PageBase.MainContent>
+</views:PageBase>

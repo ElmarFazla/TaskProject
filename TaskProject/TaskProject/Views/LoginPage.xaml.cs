@@ -1,6 +1,9 @@
-﻿namespace TaskProject.Views
+﻿using Xamarin.Forms.Xaml;
+
+namespace TaskProject.Views
 {
-    public partial class LoginPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : PageBase
     {
         public LoginPage()
         {

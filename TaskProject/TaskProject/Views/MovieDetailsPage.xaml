@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<views:PageBase
     x:Class="TaskProject.Views.MovieDetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TaskProject.Common.Components"
+    xmlns:converters="clr-namespace:TaskProject.Common.Converters"
+    xmlns:views="clr-namespace:TaskProject.Views"
     xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
     Title="{Binding Title}"
-    x:DataType="vm:MovieDetailsPageViewModel">
-    <ContentPage.Content>
+    x:DataType="vm:MovieDetailsPageViewModel"
+    IsLoading="{Binding IsLoading}">
+
+    <ContentPage.Resources>
+        <converters:StringNotNullOrEmptyBoolConverter x:Key="StringNotNullOrEmptyBoolConverter" />
+    </ContentPage.Resources>
+
+    <views:PageBase.MainContent>
         <ScrollView>
             <StackLayout Padding="16,20" BackgroundColor="{StaticResource PrimaryColor}">
                 <Frame
@@ -14,12 +23,13 @@
                     CornerRadius="20"
                     HasShadow="False"
                     HorizontalOptions="Center"
+                    IsVisible="{Binding MovieDetails.PosterUrl, Converter={StaticResource StringNotNullOrEmptyBoolConverter}}"
                     VerticalOptions="Center">
                     <Image
-                        HeightRequest="400"
                         Margin="-16"
+                        HeightRequest="400"
                         HorizontalOptions="FillAndExpand"
-                        Source="{Binding MovieDetails.Poster}"
+                        Source="{Binding MovieDetails.PosterUrl}"
                         VerticalOptions="FillAndExpand"
                         WidthRequest="290" />
                 </Frame>
@@ -28,7 +38,6 @@
                     Margin="0,16,0,0"
                     FontAttributes="Bold"
                     FontSize="24"
-                    LineBreakMode="TailTruncation"
                     TextColor="White">
                     <Label.FormattedText>
                         <FormattedString>
@@ -44,9 +53,27 @@
                     <Image HeightRequest="14" Source="star.png" />
                 </StackLayout>
 
-                <Label Text="Synopsis" FontAttributes="Bold" TextColor="White" />
+                <CollectionView HeightRequest="24" ItemsSource="{Binding MovieDetails.GenresList}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="8" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <components:PillView
+                                BackgroundColor="DarkBlue"
+                                Opacity="0.4"
+                                Text="{Binding .}"
+                                TextColor="White" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="Synopsis"
+                    TextColor="White" />
                 <Label Text="{Binding MovieDetails.Plot}" TextColor="White" />
             </StackLayout>
         </ScrollView>
-    </ContentPage.Content>
-</ContentPage>
+    </views:PageBase.MainContent>
+</views:PageBase>

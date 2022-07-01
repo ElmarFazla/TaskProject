@@ -62,7 +62,9 @@ namespace TaskProject.Core.ViewModels
 
         public async override void Initialize(INavigationParameters parameters)
         {
+            EnableLoader();
             Movies = await _movieApi.GetInitialMovies();
+            DisableLoader();
         }
 
         private async Task ExecuteOpenMovieDetailsCommand(string movieId)

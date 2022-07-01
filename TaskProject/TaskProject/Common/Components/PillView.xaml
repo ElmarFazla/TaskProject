@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Frame
+    x:Class="TaskProject.Common.Components.PillView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="rootView"
+    Padding="12,2"
+    CornerRadius="12"
+    HasShadow="False">
+    <Label
+        FontSize="12"
+        HorizontalOptions="Center"
+        Text="{Binding Source={x:Reference rootView}, Path=Text}"
+        TextColor="{Binding Source={x:Reference rootView}, Path=TextColor}"
+        VerticalOptions="Center" />
+</Frame>

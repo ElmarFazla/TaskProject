@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TaskProject.Views.PageBase"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="pageBaseView">
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid BackgroundColor="{StaticResource PrimaryColor}" IsVisible="{Binding Source={x:Reference pageBaseView}, Path=IsLoading}">
+                <ActivityIndicator
+                    Grid.Row="0"
+                    HorizontalOptions="Center"
+                    IsRunning="True"
+                    VerticalOptions="End"
+                    Color="White" />
+                <Label
+                    Grid.Row="1"
+                    HorizontalOptions="Center"
+                    Text="Loading..."
+                    TextColor="White"
+                    VerticalOptions="Start" />
+            </Grid>
+
+            <ContentView x:Name="mainContent" CompressedLayout.IsHeadless="True" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

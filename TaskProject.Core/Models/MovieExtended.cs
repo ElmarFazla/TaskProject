@@ -1,4 +1,6 @@
-﻿namespace TaskProject.Core.Models
+﻿using System.Collections.Generic;
+
+namespace TaskProject.Core.Models
 {
     public class MovieExtended
     {
@@ -19,5 +21,9 @@
         public string Poster { get; set; }
 
         public string imdbRating { get; set; }
+
+        public IEnumerable<string> GenresList => Genre.Split(',');
+
+        public string PosterUrl => Poster == "N/A" ? string.Empty : Poster;
     }
 }
