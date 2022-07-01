@@ -1,4 +1,5 @@
 ﻿using Prism.Navigation;
+using System.Collections.Generic;
 using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Consts;
 using TaskProject.Core.Models;
@@ -33,12 +34,14 @@ namespace TaskProject.Core.ViewModels
 
         public async override void Initialize(INavigationParameters parameters)
         {
+            EnableLoader();
             base.Initialize(parameters);
 
             if (parameters.TryGetValue<string>(NavigationParameterKeys.MovieId, out string movieId))
             {
                 MovieDetails = await _movieApi.GetMovieDetails(movieId);
             }
+            DisableLoader();
         }
     }
 }
