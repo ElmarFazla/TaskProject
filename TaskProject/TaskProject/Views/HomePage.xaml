@@ -16,7 +16,7 @@
             <StackLayout>
                 <SearchBar
                     Margin="16,0"
-                    BackgroundColor="White"
+                    BackgroundColor="{StaticResource LightBackground}"
                     Placeholder="Search movies..."
                     SearchCommand="{Binding SearchCommand}"
                     Text="{Binding SearchText}" />

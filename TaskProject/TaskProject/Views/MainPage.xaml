@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="TaskProject.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:views="clr-namespace:TaskProject.Views"
+    android:TabbedPage.BarItemColor="{StaticResource TabBarUnselectedItem}"
+    android:TabbedPage.BarSelectedItemColor="{StaticResource PrimaryColor}"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    BarBackgroundColor="{StaticResource TabBarBackgroundColor}"
+    NavigationPage.HasNavigationBar="True">
+
+    <TabbedPage.Children>
+        <views:HomePage Title="Search" IconImageSource="search.png" />
+        <views:FavouritesPage Title="Favourites" IconImageSource="favourites.png" />
+    </TabbedPage.Children>
+</TabbedPage>

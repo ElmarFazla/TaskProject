@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using AndroidX.AppCompat.App;
 using Prism;
 using Prism.Ioc;
 
@@ -15,6 +16,7 @@ namespace TaskProject.Droid
             base.OnCreate(savedInstanceState);
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
             LoadApplication(new App(new AndroidInitializer()));
         }
 

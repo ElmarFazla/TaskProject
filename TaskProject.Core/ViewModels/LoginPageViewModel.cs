@@ -18,7 +18,7 @@ namespace TaskProject.Core.ViewModels
 
         private async Task ExecuteLoginCommand()
         {
-            await NavigationService.NavigateAsync($"../{Pages.HomePage}");
+            await NavigationService.NavigateAsync($"../{Pages.MainPage}");
         }
     }
 }

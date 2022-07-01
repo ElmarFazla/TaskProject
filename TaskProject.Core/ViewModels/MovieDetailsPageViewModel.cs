@@ -1,8 +1,10 @@
 ﻿using Prism.Navigation;
-using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Consts;
 using TaskProject.Core.Models;
+using Xamarin.Forms;
 
 namespace TaskProject.Core.ViewModels
 {
@@ -18,7 +20,11 @@ namespace TaskProject.Core.ViewModels
             _movieApi = movieApi;
 
             Title = "Movies Details";
+
+            AddToFavouriteCommand = new Command(async () => await ExecuteAddToFavouriteCommand());
         }
+
+        public ICommand AddToFavouriteCommand { get; }
 
         public MovieExtended MovieDetails
         {
@@ -42,6 +48,11 @@ namespace TaskProject.Core.ViewModels
                 MovieDetails = await _movieApi.GetMovieDetails(movieId);
             }
             DisableLoader();
+        }
+
+        private async Task ExecuteAddToFavouriteCommand()
+        {
+            // Add to LocalDB for Movies
         }
     }
 }

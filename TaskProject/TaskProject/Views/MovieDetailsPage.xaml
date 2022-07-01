@@ -38,7 +38,7 @@
                     Margin="0,16,0,0"
                     FontAttributes="Bold"
                     FontSize="24"
-                    TextColor="White">
+                    TextColor="{StaticResource LightTextColor}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding MovieDetails.Title}" />
@@ -46,10 +46,10 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label Text="{Binding MovieDetails.Director, StringFormat='Director: {0}'}" TextColor="White" />
+                <Label Text="{Binding MovieDetails.Director, StringFormat='Director: {0}'}" TextColor="{StaticResource LightTextColor}" />
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding MovieDetails.imdbRating}" TextColor="White" />
+                    <Label Text="{Binding MovieDetails.imdbRating}" TextColor="{StaticResource LightTextColor}" />
                     <Image HeightRequest="14" Source="star.png" />
                 </StackLayout>
 
@@ -60,10 +60,10 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="x:String">
                             <components:PillView
-                                BackgroundColor="DarkBlue"
+                                BackgroundColor="{StaticResource BluePillBackgroudColor}"
                                 Opacity="0.4"
                                 Text="{Binding .}"
-                                TextColor="White" />
+                                TextColor="{StaticResource LightTextColor}" />
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -71,8 +71,14 @@
                 <Label
                     FontAttributes="Bold"
                     Text="Synopsis"
-                    TextColor="White" />
-                <Label Text="{Binding MovieDetails.Plot}" TextColor="White" />
+                    TextColor="{StaticResource LightTextColor}" />
+                <Label Text="{Binding MovieDetails.Plot}" TextColor="{StaticResource LightTextColor}" />
+
+                <Button
+                    Margin="0,16,0,0"
+                    Command="{Binding AddToFavouriteCommand}"
+                    Style="{StaticResource DarkButtonStyle}"
+                    Text="Add to Favourites" />
             </StackLayout>
         </ScrollView>
     </views:PageBase.MainContent>

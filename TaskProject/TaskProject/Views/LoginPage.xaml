@@ -7,7 +7,7 @@
     NavigationPage.HasNavigationBar="False">
 
     <views:PageBase.MainContent>
-        <Grid>
+        <Grid BackgroundColor="{StaticResource LightBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="70" />
@@ -30,7 +30,7 @@
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Margin="24,0"
-                BackgroundColor="White"
+                BackgroundColor="{StaticResource LightBackground}"
                 CornerRadius="20">
                 <Grid
                     Padding="0,20"
@@ -43,12 +43,18 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Entry Grid.Row="0" Placeholder="Username" />
+                    <Entry
+                        Grid.Row="0"
+                        Placeholder="Username"
+                        PlaceholderColor="{StaticResource PlaceholderColor}"
+                        TextColor="{StaticResource DarkTextColor}" />
 
                     <Entry
                         Grid.Row="1"
                         IsPassword="True"
-                        Placeholder="Password" />
+                        Placeholder="Password"
+                        PlaceholderColor="{StaticResource PlaceholderColor}"
+                        TextColor="{StaticResource DarkTextColor}" />
 
                     <Label
                         Grid.Row="2"

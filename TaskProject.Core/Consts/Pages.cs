@@ -2,6 +2,8 @@
 {
     public class Pages
     {
+        public const string MainPage = nameof(MainPage);
+
         public const string NavigationPage = nameof(NavigationPage);
 
         public const string LoginPage = nameof(LoginPage);
