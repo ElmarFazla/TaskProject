@@ -31,9 +31,11 @@ namespace TaskProject
             containerRegistry.RegisterSingleton<IMovieApi, MovieApi>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<MovieDetailsPage, MovieDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<FavouritesPage, FavouritesPageViewModel>();
         }
     }
 }

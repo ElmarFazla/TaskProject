@@ -14,6 +14,24 @@
             </ResourceDictionary.MergedDictionaries>
 
             <Color x:Key="PrimaryColor">#5b90dc</Color>
+            <Color x:Key="LightBackground">#FFFFFF</Color>
+            <Color x:Key="DarkTextColor">#494949</Color>
+            <Color x:Key="LightTextColor">#FFFFFF</Color>
+            <Color x:Key="PlaceholderColor">#a19f9f</Color>
+            <Color x:Key="TabBarBackgroundColor">AliceBlue</Color>
+            <Color x:Key="TabBarUnselectedItem">Gray</Color>
+            <Color x:Key="BluePillBackgroudColor">DarkBlue</Color>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
+            </Style>
+
+            <Style x:Key="DarkButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#3855bb" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+
         </ResourceDictionary>
 
     </Application.Resources>
