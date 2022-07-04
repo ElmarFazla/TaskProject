@@ -18,6 +18,8 @@
 
         public string Poster { get; set; }
 
-        public string imdbRating { get; set; }
+        public string ImdbRating { get; set; }
+
+        public string ImdbID { get; set; }
     }
 }

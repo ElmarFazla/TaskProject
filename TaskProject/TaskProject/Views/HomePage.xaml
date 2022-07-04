@@ -70,6 +70,23 @@
                             </Frame>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
+
+                    <!--  Empty view needs to be centered, but I have issues with it. So I'll skip this in order to save time  -->
+                    <BindableLayout.EmptyView>
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="No Results found."
+                                TextColor="{StaticResource LightTextColor}" />
+                            <Label
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Try adjusting your search to find what you are looking for."
+                                TextColor="{StaticResource LightTextColor}" />
+                        </StackLayout>
+                    </BindableLayout.EmptyView>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

@@ -1,9 +1,12 @@
-﻿using Prism.Navigation;
+﻿using Prism.Events;
+using Prism.Navigation;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Consts;
+using TaskProject.Core.Database.Abstractions;
 using TaskProject.Core.Models;
+using TaskProject.Core.Models.Events;
 using Xamarin.Forms;
 
 namespace TaskProject.Core.ViewModels
@@ -11,13 +14,17 @@ namespace TaskProject.Core.ViewModels
     public class MovieDetailsPageViewModel : ViewModelBase
     {
         private readonly IMovieApi _movieApi;
+        private readonly IMovieRepository _movieRepository;
+        private readonly IEventAggregator _eventAggregator;
 
         private MovieExtended _movieDetails;
 
-        public MovieDetailsPageViewModel(INavigationService navigationService, IMovieApi movieApi)
+        public MovieDetailsPageViewModel(INavigationService navigationService, IMovieApi movieApi, IMovieRepository movieRepository, IEventAggregator eventAggregator)
             : base(navigationService)
         {
             _movieApi = movieApi;
+            _movieRepository = movieRepository;
+            _eventAggregator = eventAggregator;
 
             Title = "Movies Details";
 
@@ -52,7 +59,18 @@ namespace TaskProject.Core.ViewModels
 
         private async Task ExecuteAddToFavouriteCommand()
         {
-            // Add to LocalDB for Movies
+            var movie = new Movie
+            {
+                ImdbID = MovieDetails.ImdbID,
+                Poster = MovieDetails.Poster,
+                Title = MovieDetails.Title,
+                Year = MovieDetails.Year
+            };
+
+            await _movieRepository.AddMovie(movie);
+            _eventAggregator
+                .GetEvent<RefreshFavouritesEvent>()
+                .Publish();
         }
     }
 }
