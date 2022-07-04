@@ -18,7 +18,6 @@ namespace TaskProject.Core.Api.Mappers
             {
                 Title = dto.Title,
                 Year = dto.Year,
-                Type = dto.Type,
                 Poster = dto.Poster,
                 ImdbID = dto.ImdbID
             };
@@ -48,7 +47,8 @@ namespace TaskProject.Core.Api.Mappers
                 Poster = dto.Poster,
                 Director = dto.Director,
                 Genre = dto.Genre,
-                imdbRating = dto.imdbRating,
+                ImdbRating = dto.ImdbRating,
+                ImdbID = dto.ImdbID,
                 Plot = dto.Plot,
                 Rated = dto.Rated,
                 Runtime = dto.Runtime

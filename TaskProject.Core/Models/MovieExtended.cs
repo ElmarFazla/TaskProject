@@ -20,7 +20,9 @@ namespace TaskProject.Core.Models
 
         public string Poster { get; set; }
 
-        public string imdbRating { get; set; }
+        public string ImdbRating { get; set; }
+
+        public string ImdbID { get; set; }
 
         public IEnumerable<string> GenresList => Genre.Split(',');
 
