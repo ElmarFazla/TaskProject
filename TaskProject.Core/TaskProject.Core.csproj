@@ -125,11 +125,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Abstractions\IAuthService.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="ViewModels\AddMoviePopupPageViewModel.cs" />
     <Compile Include="ViewModels\FavouritesPageViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MovieDetailsPageViewModel.cs" />
+    <Compile Include="ViewModels\PopupViewModelBase.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup />

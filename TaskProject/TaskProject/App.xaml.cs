@@ -10,6 +10,7 @@ using TaskProject.Core.Services;
 using TaskProject.Core.Services.Abstractions;
 using TaskProject.Core.ViewModels;
 using TaskProject.Views;
+using TaskProject.Views.Popups;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
@@ -45,6 +46,7 @@ namespace TaskProject
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<MovieDetailsPage, MovieDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<FavouritesPage, FavouritesPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddMoviePopupPage, AddMoviePopupPageViewModel>();
         }
     }
 }

@@ -1,13 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ResourceDictionary 
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="TaskProject.Common.Resources.Colors"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    x:Class="TaskProject.Common.Resources.Colors">
+    mc:Ignorable="d">
 
-    <Color x:Key="PrimaryColor">#0078d4</Color>
-    <Color x:Key="SecondaryButtonTextColor">#FFFFFF</Color>
-
+    <Color x:Key="PrimaryColor">#5b90dc</Color>
+    <Color x:Key="LightBackground">#FFFFFF</Color>
+    <Color x:Key="DarkTextColor">#494949</Color>
+    <Color x:Key="LightTextColor">#FFFFFF</Color>
+    <Color x:Key="PlaceholderColor">#a19f9f</Color>
+    <Color x:Key="TabBarBackgroundColor">AliceBlue</Color>
+    <Color x:Key="TabBarUnselectedItem">Gray</Color>
+    <Color x:Key="BluePillBackgroudColor">DarkBlue</Color>
 </ResourceDictionary>

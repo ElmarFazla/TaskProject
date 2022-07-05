@@ -20,6 +20,12 @@
                     Placeholder="Search movies..."
                     SearchCommand="{Binding SearchCommand}"
                     Text="{Binding SearchText}" />
+                <Button
+                    Margin="16,16,16,0"
+                    Command="{Binding AddMovieCommand}"
+                    Style="{StaticResource DarkButtonStyle}"
+                    Text="Add New Movie" />
+
                 <StackLayout
                     Padding="16"
                     BindableLayout.ItemsSource="{Binding Movies}"
