@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popups:PopupPageBase
+    x:Class="TaskProject.Views.Popups.AddMoviePopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popups="clr-namespace:TaskProject.Views.Popups"
+    Title="Add movie"
+    CloseCommand="{Binding CloseCommand}">
+
+    <!--
+        The popup is used to showcase knowledge about popups and showing Popup base implementation,
+        therefore the Design and functionality isn't implemented completely
+    -->
+
+    <popups:PopupPageBase.MainContent>
+        <StackLayout Padding="16" Spacing="16">
+            <Entry
+                Grid.Row="0"
+                Placeholder="Title"
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                TextColor="{StaticResource DarkTextColor}" />
+            <Entry
+                Grid.Row="0"
+                Placeholder="Year"
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                TextColor="{StaticResource DarkTextColor}" />
+            <Entry
+                Grid.Row="0"
+                Placeholder="Director"
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                TextColor="{StaticResource DarkTextColor}" />
+            <Label Margin="4,0,0,-8" Text="Synopsis" />
+            <Editor
+                Grid.Row="0"
+                Placeholder="Synopsis"
+                PlaceholderColor="{StaticResource PlaceholderColor}"
+                TextColor="{StaticResource DarkTextColor}" />
+        </StackLayout>
+    </popups:PopupPageBase.MainContent>
+
+    <popups:PopupPageBase.Footer>
+        <StackLayout>
+            <Button
+                Command="{Binding AddMovieCommand}"
+                HorizontalOptions="End"
+                Style="{StaticResource DarkButtonStyle}"
+                Text="Add" />
+        </StackLayout>
+    </popups:PopupPageBase.Footer>
+</popups:PopupPageBase>

@@ -28,10 +28,12 @@ namespace TaskProject.Core.ViewModels
 
             OpenMovieDetailsCommand = new Command<string>(async (movieID) => await ExecuteOpenMovieDetailsCommand(movieID));
             SearchCommand = new Command(async () => await ExecuteSearchCommand());
+            AddMovieCommand = new Command(async () => await ExecuteAddMovieCommand());
         }
 
         public ICommand OpenMovieDetailsCommand { get; }
         public ICommand SearchCommand { get; }
+        public ICommand AddMovieCommand { get; }
 
         public IEnumerable<Movie> Movies
         {
@@ -86,6 +88,11 @@ namespace TaskProject.Core.ViewModels
             {
                 Movies = await _movieApi.SearchMovies(SearchText);
             }
+        }
+
+        private async Task ExecuteAddMovieCommand()
+        {
+            await NavigationService.NavigateAsync(Pages.AddMoviePopupPage, useModalNavigation:true, animated:true);
         }
 
         private void DelayedSearch()

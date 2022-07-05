@@ -4,6 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:TaskProject.Views"
+    xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
+    x:DataType="vm:LoginPageViewModel"
     NavigationPage.HasNavigationBar="False">
 
     <views:PageBase.MainContent>
@@ -47,6 +49,7 @@
                         Grid.Row="0"
                         Placeholder="Username"
                         PlaceholderColor="{StaticResource PlaceholderColor}"
+                        Text="{Binding UserName}"
                         TextColor="{StaticResource DarkTextColor}" />
 
                     <Entry
@@ -54,6 +57,7 @@
                         IsPassword="True"
                         Placeholder="Password"
                         PlaceholderColor="{StaticResource PlaceholderColor}"
+                        Text="{Binding Password}"
                         TextColor="{StaticResource DarkTextColor}" />
 
                     <Label
