@@ -47,6 +47,8 @@ namespace TaskProject
             containerRegistry.RegisterForNavigation<MovieDetailsPage, MovieDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<FavouritesPage, FavouritesPageViewModel>();
             containerRegistry.RegisterForNavigation<AddMoviePopupPage, AddMoviePopupPageViewModel>();
+            containerRegistry.RegisterForNavigation<ForgotPasswordPage, ForgotPasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<EmailSentPage, EmailSentPageViewModel>();
         }
     }
 }

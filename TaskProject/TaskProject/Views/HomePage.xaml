@@ -12,20 +12,19 @@
     IsLoading="{Binding IsLoading}">
 
     <views:PageBase.MainContent>
-        <ScrollView BackgroundColor="{StaticResource PrimaryColor}">
-            <StackLayout>
-                <SearchBar
-                    Margin="16,0"
-                    BackgroundColor="{StaticResource LightBackground}"
-                    Placeholder="Search movies..."
-                    SearchCommand="{Binding SearchCommand}"
-                    Text="{Binding SearchText}" />
-                <Button
-                    Margin="16,16,16,0"
-                    Command="{Binding AddMovieCommand}"
-                    Style="{StaticResource DarkButtonStyle}"
-                    Text="Add New Movie" />
-
+        <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
+            <SearchBar
+                Margin="16,0"
+                BackgroundColor="{StaticResource LightBackground}"
+                Placeholder="Search movies..."
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding SearchText}" />
+            <Button
+                Margin="16,16,16,0"
+                Command="{Binding AddMovieCommand}"
+                Style="{StaticResource DarkButtonStyle}"
+                Text="Add New Movie" />
+            <ScrollView>
                 <StackLayout
                     Padding="16"
                     BindableLayout.ItemsSource="{Binding Movies}"
@@ -94,7 +93,7 @@
                         </StackLayout>
                     </BindableLayout.EmptyView>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
     </views:PageBase.MainContent>
 </views:PageBase>

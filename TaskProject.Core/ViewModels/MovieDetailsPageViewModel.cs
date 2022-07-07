@@ -54,6 +54,7 @@ namespace TaskProject.Core.ViewModels
             {
                 MovieDetails = await _movieApi.GetMovieDetails(movieId);
             }
+
             DisableLoader();
         }
 

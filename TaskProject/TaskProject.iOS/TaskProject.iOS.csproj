@@ -113,6 +113,7 @@
     <None Include="Info.plist" />
     <LinkDescription Include="LinkerSettings.xml" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\movieFont.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">

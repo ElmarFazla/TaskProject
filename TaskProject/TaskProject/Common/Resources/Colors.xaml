@@ -15,4 +15,5 @@
     <Color x:Key="TabBarBackgroundColor">AliceBlue</Color>
     <Color x:Key="TabBarUnselectedItem">Gray</Color>
     <Color x:Key="BluePillBackgroudColor">DarkBlue</Color>
+    <Color x:Key="StarRatingColor">#ffd700</Color>
 </ResourceDictionary>

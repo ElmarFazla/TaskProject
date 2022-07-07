@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:popups="clr-namespace:TaskProject.Views.Popups"
+    xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
     Title="Add movie"
+    x:DataType="vm:AddMoviePopupPageViewModel"
     CloseCommand="{Binding CloseCommand}">
 
     <!--
@@ -15,25 +17,26 @@
     <popups:PopupPageBase.MainContent>
         <StackLayout Padding="16" Spacing="16">
             <Entry
-                Grid.Row="0"
                 Placeholder="Title"
                 PlaceholderColor="{StaticResource PlaceholderColor}"
+                Text="{Binding MovieTitle}"
                 TextColor="{StaticResource DarkTextColor}" />
             <Entry
-                Grid.Row="0"
                 Placeholder="Year"
                 PlaceholderColor="{StaticResource PlaceholderColor}"
+                Text="{Binding Year}"
                 TextColor="{StaticResource DarkTextColor}" />
             <Entry
-                Grid.Row="0"
                 Placeholder="Director"
                 PlaceholderColor="{StaticResource PlaceholderColor}"
+                Text="{Binding Director}"
                 TextColor="{StaticResource DarkTextColor}" />
             <Label Margin="4,0,0,-8" Text="Synopsis" />
             <Editor
-                Grid.Row="0"
+                HeightRequest="100"
                 Placeholder="Synopsis"
                 PlaceholderColor="{StaticResource PlaceholderColor}"
+                Text="{Binding Synopsis}"
                 TextColor="{StaticResource DarkTextColor}" />
         </StackLayout>
     </popups:PopupPageBase.MainContent>

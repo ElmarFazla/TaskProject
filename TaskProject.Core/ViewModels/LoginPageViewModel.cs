@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TaskProject.Core.Consts;
 using TaskProject.Core.Database.Abstractions;
+using TaskProject.Core.Infrastructure.Commands;
 using TaskProject.Core.Services.Abstractions;
 using Xamarin.Forms;
 
@@ -22,10 +23,14 @@ namespace TaskProject.Core.ViewModels
             _database = database;
             _authService = authService;
 
-            LoginCommand = new Command(async () => await ExecuteLoginCommand());
+            LoginCommand = new AsyncCommand(async () => await ExecuteLoginCommand(), () => CanExecuteLogin);
+            ForgotPasswordCommand = new Command(async () => await ExecuteForgotPasswordCommand());
         }
 
-        public ICommand LoginCommand { get; }
+        public AsyncCommand LoginCommand { get; }
+        public ICommand ForgotPasswordCommand { get; }
+
+        public bool CanExecuteLogin => !string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password);
 
         public string UserName
         {
@@ -35,7 +40,10 @@ namespace TaskProject.Core.ViewModels
             }
             set
             {
-                SetProperty(ref _userName, value);
+                if(SetProperty(ref _userName, value))
+                {
+                    LoginCommand.RaiseCanExecuteChanged();
+                }
             }
         }
 
@@ -47,7 +55,10 @@ namespace TaskProject.Core.ViewModels
             }
             set
             {
-                SetProperty(ref _password, value);
+                if (SetProperty(ref _password, value))
+                {
+                    LoginCommand.RaiseCanExecuteChanged();
+                }
             }
         }
 
@@ -59,6 +70,11 @@ namespace TaskProject.Core.ViewModels
             await _database.ConnectAsync(UserName);
 
             await NavigationService.NavigateAsync($"../{Pages.MainPage}");
+        }
+
+        private async Task ExecuteForgotPasswordCommand()
+        {
+            await NavigationService.NavigateAsync(Pages.ForgotPasswordPage);
         }
     }
 }

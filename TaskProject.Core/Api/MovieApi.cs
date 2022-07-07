@@ -15,7 +15,6 @@ namespace TaskProject.Core.Api
     {
         HttpClient client;
         private readonly IAuthService _authService;
-        private readonly string _apiKey;
 
         public MovieApi(IAuthService authService)
         {

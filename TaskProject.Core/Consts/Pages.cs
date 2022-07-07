@@ -13,5 +13,9 @@
         public const string MovieDetailsPage = nameof(MovieDetailsPage);
 
         public const string AddMoviePopupPage = nameof(AddMoviePopupPage);
+
+        public const string ForgotPasswordPage = nameof(ForgotPasswordPage); 
+
+        public const string EmailSentPage = nameof(EmailSentPage);
     }
 }

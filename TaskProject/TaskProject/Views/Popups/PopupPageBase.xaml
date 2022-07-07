@@ -7,6 +7,7 @@
     xmlns:components="clr-namespace:TaskProject.Common.Components"
     xmlns:converters="clr-namespace:TaskProject.Common.Converters"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:utils="clr-namespace:TaskProject.Common.Utils"
     x:Name="rootView"
     Padding="20">
     <pages:PopupPage.Animation>
@@ -56,9 +57,15 @@
                         Grid.Column="1"
                         BackgroundColor="{StaticResource LightBackground}"
                         Command="{Binding Source={x:Reference rootView}, Path=CloseCommand}"
-                        HeightRequest="20"
-                        IsVisible="{Binding Source={x:Reference rootView}, Path=CloseCommand, Converter={StaticResource NotNullConverter}}"
-                        Source="close.png" />
+                        IsVisible="{Binding Source={x:Reference rootView}, Path=CloseCommand, Converter={StaticResource NotNullConverter}}">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                FontFamily="{StaticResource MovieIcons}"
+                                Glyph="{x:Static utils:MovieIcons.Close}"
+                                Size="20"
+                                Color="{StaticResource PrimaryColor}" />
+                        </ImageButton.Source>
+                    </ImageButton>
 
                 </Grid>
 

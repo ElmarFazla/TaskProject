@@ -119,6 +119,9 @@
     <Compile Include="Database\Abstractions\IMovieRepository.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\Repositories\MovieRepository.cs" />
+    <Compile Include="Infrastructure\Commands\AsyncCommand.cs" />
+    <Compile Include="Infrastructure\Commands\IAsyncCommand.cs" />
+    <Compile Include="Infrastructure\TaskExtensions.cs" />
     <Compile Include="Models\Events\RefreshFavouritesEvent.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieExtended.cs" />
@@ -126,7 +129,9 @@
     <Compile Include="Services\Abstractions\IAuthService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="ViewModels\AddMoviePopupPageViewModel.cs" />
+    <Compile Include="ViewModels\EmailSentPageViewModel.cs" />
     <Compile Include="ViewModels\FavouritesPageViewModel.cs" />
+    <Compile Include="ViewModels\ForgotPasswordPageViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
