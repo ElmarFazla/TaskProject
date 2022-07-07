@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:utils="clr-namespace:TaskProject.Common.Utils"
     xmlns:views="clr-namespace:TaskProject.Views"
     android:TabbedPage.BarItemColor="{StaticResource TabBarUnselectedItem}"
     android:TabbedPage.BarSelectedItemColor="{StaticResource PrimaryColor}"
@@ -12,7 +13,15 @@
     NavigationPage.HasNavigationBar="True">
 
     <TabbedPage.Children>
-        <views:HomePage Title="Search" IconImageSource="search.png" />
-        <views:FavouritesPage Title="Favourites" IconImageSource="favourites.png" />
+        <views:HomePage Title="Search">
+            <views:HomePage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MovieIcons}" Glyph="{x:Static utils:MovieIcons.Search}" />
+            </views:HomePage.IconImageSource>
+        </views:HomePage>
+        <views:FavouritesPage Title="Favourites">
+            <views:FavouritesPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MovieIcons}" Glyph="{x:Static utils:MovieIcons.Hearth}" />
+            </views:FavouritesPage.IconImageSource>
+        </views:FavouritesPage>
     </TabbedPage.Children>
 </TabbedPage>

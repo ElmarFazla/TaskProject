@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:components="clr-namespace:TaskProject.Common.Components"
     xmlns:converters="clr-namespace:TaskProject.Common.Converters"
+    xmlns:utils="clr-namespace:TaskProject.Common.Utils"
     xmlns:views="clr-namespace:TaskProject.Views"
     xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
     Title="{Binding Title}"
@@ -50,7 +51,15 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding MovieDetails.ImdbRating}" TextColor="{StaticResource LightTextColor}" />
-                    <Image HeightRequest="14" Source="star.png" />
+                    <Image>
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{StaticResource MovieIcons}"
+                                Glyph="{x:Static utils:MovieIcons.StarFilled}"
+                                Size="14"
+                                Color="{StaticResource StarRatingColor}" />
+                        </Image.Source>
+                    </Image>
                 </StackLayout>
 
                 <CollectionView HeightRequest="24" ItemsSource="{Binding MovieDetails.GenresList}">

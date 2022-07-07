@@ -65,7 +65,11 @@
                         FontSize="16"
                         HorizontalOptions="End"
                         Text="Forgot Password"
-                        TextColor="{StaticResource PrimaryColor}" />
+                        TextColor="{StaticResource PrimaryColor}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
 
                     <Button
                         Grid.Row="3"

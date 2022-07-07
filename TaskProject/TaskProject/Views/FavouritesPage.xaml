@@ -68,7 +68,7 @@
                                 FontSize="16"
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Center"
-                                Text="Try adjusting your search to find what you are looking for."
+                                Text="Add movies to your favorourites in order for them to appear here."
                                 TextColor="{StaticResource LightTextColor}" />
                         </StackLayout>
                     </BindableLayout.EmptyView>

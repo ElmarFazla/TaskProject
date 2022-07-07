@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PageBase
+    x:Class="TaskProject.Views.EmailSentPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:utils="clr-namespace:TaskProject.Common.Utils"
+    xmlns:views="clr-namespace:TaskProject.Views"
+    xmlns:vm="clr-namespace:TaskProject.Core.ViewModels;assembly=TaskProject.Core"
+    Title="{Binding Title}"
+    x:DataType="vm:EmailSentPageViewModel">
+    <views:PageBase.MainContent>
+        <StackLayout Padding="16">
+            <Image Margin="0,20,0,0">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{StaticResource MovieIcons}"
+                        Glyph="{x:Static utils:MovieIcons.Checkmark}"
+                        Size="180"
+                        Color="{StaticResource PrimaryColor}" />
+                </Image.Source>
+            </Image>
+
+            <Label
+                Margin="0,20,0,0"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Check your email" />
+
+            <Label
+                Margin="0,20,0,0"
+                HorizontalOptions="Center"
+                Text="We have sent password reser instructions to:" />
+
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="{Binding Email}"
+                TextColor="{StaticResource PrimaryColor}" />
+
+            <Label
+                Margin="0,20,0,0"
+                HorizontalOptions="Center"
+                Text="If it doesn't arrive soon, check your spam folder." />
+
+            <Button
+                Margin="0,30,0,0"
+                Command="{Binding BackToLoginCommand}"
+                Style="{StaticResource DarkButtonStyle}"
+                Text="Back to login" />
+        </StackLayout>
+    </views:PageBase.MainContent>
+</views:PageBase>
