@@ -7,22 +7,23 @@ using System.Windows.Input;
 using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Consts;
 using TaskProject.Core.Models;
+using TaskProject.Core.Services.Abstractions;
 using Xamarin.Forms;
 
 namespace TaskProject.Core.ViewModels
 {
     public class HomePageViewModel : ViewModelBase
     {
-        private readonly IMovieApi _movieApi;
+        private readonly IMovieApiManager _movieApiManager;
 
         private IEnumerable<Movie> _movies;
         private string _searchText;
         private CancellationTokenSource throttleCts = new CancellationTokenSource();
 
-        public HomePageViewModel(INavigationService navigationService, IMovieApi movieApi)
+        public HomePageViewModel(INavigationService navigationService, IMovieApiManager movieApiManager)
             : base(navigationService)
         {
-            _movieApi = movieApi;
+            _movieApiManager = movieApiManager;
 
             Title = "Movies List";
 
@@ -65,7 +66,7 @@ namespace TaskProject.Core.ViewModels
         public async override void Initialize(INavigationParameters parameters)
         {
             EnableLoader();
-            Movies = await _movieApi.GetInitialMovies();
+            Movies = await _movieApiManager.GetInitialMovies();
             DisableLoader();
         }
 
@@ -81,18 +82,20 @@ namespace TaskProject.Core.ViewModels
         {
             if (string.IsNullOrWhiteSpace(SearchText))
             {
-                Movies = await _movieApi.GetInitialMovies();
+                Movies = await _movieApiManager.GetInitialMovies();
             }
 
             if (SearchText.Length >= 4)
             {
-                Movies = await _movieApi.SearchMovies(SearchText);
+                Movies = await _movieApiManager.SearchMovies(SearchText);
             }
         }
 
         private async Task ExecuteAddMovieCommand()
         {
-            await NavigationService.NavigateAsync(Pages.AddMoviePopupPage, animated:true);
+            //var test = await NavigationService.NavigateAsync(Pages.AddMoviePopupPage, useModalNavigation: true );
+
+            var test = await NavigationService.NavigateAsync(Pages.AddMoviePopupPage);
         }
 
         private void DelayedSearch()

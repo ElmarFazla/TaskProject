@@ -35,6 +35,7 @@ namespace TaskProject
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.RegisterSingleton<IAuthApi, AuthApi>();
+            containerRegistry.RegisterSingleton<IMovieApiManager, MovieApiManager>();
             containerRegistry.RegisterSingleton<IMovieApi, MovieApi>();
             containerRegistry.RegisterSingleton<IDatabase, Database>();
             containerRegistry.Register<IAuthService, AuthService>();

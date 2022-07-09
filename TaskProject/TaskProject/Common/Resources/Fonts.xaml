@@ -8,8 +8,8 @@
     mc:Ignorable="d">
 
     <OnPlatform x:Key="MovieIcons" x:TypeArguments="x:String">
-        <OnPlatform.iOS>movieFont</OnPlatform.iOS>
-        <OnPlatform.Android>movieFont.ttf#movieFont</OnPlatform.Android>
+        <OnPlatform.iOS>Movie-Font</OnPlatform.iOS>
+        <OnPlatform.Android>Movie-Font.ttf#Movie-Font</OnPlatform.Android>
     </OnPlatform>
 
 </ResourceDictionary>

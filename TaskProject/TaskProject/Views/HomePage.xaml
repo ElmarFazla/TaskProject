@@ -14,16 +14,33 @@
     <views:PageBase.MainContent>
         <StackLayout BackgroundColor="{StaticResource PrimaryColor}">
             <SearchBar
-                Margin="16,0"
                 BackgroundColor="{StaticResource LightBackground}"
                 Placeholder="Search movies..."
                 SearchCommand="{Binding SearchCommand}"
-                Text="{Binding SearchText}" />
+                Text="{Binding SearchText}">
+
+                <SearchBar.Margin>
+                    <OnPlatform
+                        x:TypeArguments="Thickness"
+                        Android="16,0"
+                        iOS="16,16,16,0" />
+                </SearchBar.Margin>
+
+            </SearchBar>
             <Button
                 Margin="16,16,16,0"
                 Command="{Binding AddMovieCommand}"
                 Style="{StaticResource DarkButtonStyle}"
-                Text="Add New Movie" />
+                Text="Add New Movie">
+
+                <!--  Because I had issues with RG Popup on iOS and didn't have time to investigate properly, I had to remove this functionality for iOS. Android is working as expected.  -->
+                <Button.IsVisible>
+                    <OnPlatform
+                        x:TypeArguments="x:Boolean"
+                        Android="true"
+                        iOS="false" />
+                </Button.IsVisible>
+            </Button>
             <ScrollView>
                 <StackLayout
                     Padding="16"
@@ -34,7 +51,8 @@
                             <Frame
                                 Padding="0,0,12,0"
                                 CornerRadius="20"
-                                HasShadow="False">
+                                HasShadow="False"
+                                IsClippedToBounds="True">
                                 <Grid ColumnSpacing="12">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
