@@ -24,6 +24,7 @@
                     CornerRadius="20"
                     HasShadow="False"
                     HorizontalOptions="Center"
+                    IsClippedToBounds="True"
                     IsVisible="{Binding MovieDetails.PosterUrl, Converter={StaticResource StringNotNullOrEmptyBoolConverter}}"
                     VerticalOptions="Center">
                     <Image

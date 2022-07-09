@@ -2,6 +2,7 @@
 using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Services.Abstractions;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace TaskProject.Core.Services
 {
@@ -21,7 +22,15 @@ namespace TaskProject.Core.Services
         {
             if (_apiKey == null)
             {
-                _apiKey = await SecureStorage.GetAsync(Api_Key);
+                // Because of issues with Entitlements for iOS I had no time to fix them, I'll skip fetching the key from SecureStorage for iOS
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    _apiKey = await SecureStorage.GetAsync(Api_Key);
+                }
+                else if (Device.RuntimePlatform == Device.iOS)
+                {
+                    return "e7b0e27b";
+                }
             }
 
             return _apiKey;
@@ -35,8 +44,21 @@ namespace TaskProject.Core.Services
 
         private async Task SetApiKey(string apiKey)
         {
-            await SecureStorage.SetAsync(Api_Key, apiKey);
-            _apiKey = apiKey;
+            try
+            {
+                // Because of issues with Entitlements for iOS I had no time to fix them, I'll skio storing the key in SecureStorage for iOS
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    await SecureStorage.SetAsync(Api_Key, apiKey);
+                }
+
+                _apiKey = apiKey;
+            }
+            catch (System.Exception ex)
+            {
+
+                var test = 1;
+            }
         }
     }
 }

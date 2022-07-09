@@ -127,7 +127,9 @@
     <Compile Include="Models\MovieExtended.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Abstractions\IAuthService.cs" />
+    <Compile Include="Services\Abstractions\IMovieApiManager.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\MovieApiManager.cs" />
     <Compile Include="ViewModels\AddMoviePopupPageViewModel.cs" />
     <Compile Include="ViewModels\EmailSentPageViewModel.cs" />
     <Compile Include="ViewModels\FavouritesPageViewModel.cs" />

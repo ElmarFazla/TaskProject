@@ -2,27 +2,27 @@
 using Prism.Navigation;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using TaskProject.Core.Api.Abstractions;
 using TaskProject.Core.Consts;
 using TaskProject.Core.Database.Abstractions;
 using TaskProject.Core.Models;
 using TaskProject.Core.Models.Events;
+using TaskProject.Core.Services.Abstractions;
 using Xamarin.Forms;
 
 namespace TaskProject.Core.ViewModels
 {
     public class MovieDetailsPageViewModel : ViewModelBase
     {
-        private readonly IMovieApi _movieApi;
+        private readonly IMovieApiManager _movieApiManager;
         private readonly IMovieRepository _movieRepository;
         private readonly IEventAggregator _eventAggregator;
 
         private MovieExtended _movieDetails;
 
-        public MovieDetailsPageViewModel(INavigationService navigationService, IMovieApi movieApi, IMovieRepository movieRepository, IEventAggregator eventAggregator)
+        public MovieDetailsPageViewModel(INavigationService navigationService, IMovieApiManager movieApiManager, IMovieRepository movieRepository, IEventAggregator eventAggregator)
             : base(navigationService)
         {
-            _movieApi = movieApi;
+            _movieApiManager = movieApiManager;
             _movieRepository = movieRepository;
             _eventAggregator = eventAggregator;
 
@@ -52,7 +52,7 @@ namespace TaskProject.Core.ViewModels
 
             if (parameters.TryGetValue<string>(NavigationParameterKeys.MovieId, out string movieId))
             {
-                MovieDetails = await _movieApi.GetMovieDetails(movieId);
+                MovieDetails = await _movieApiManager.GetMovieDetails(movieId);
             }
 
             DisableLoader();
