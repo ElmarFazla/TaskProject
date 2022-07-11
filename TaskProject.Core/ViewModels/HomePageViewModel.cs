@@ -93,9 +93,7 @@ namespace TaskProject.Core.ViewModels
 
         private async Task ExecuteAddMovieCommand()
         {
-            //var test = await NavigationService.NavigateAsync(Pages.AddMoviePopupPage, useModalNavigation: true );
-
-            var test = await NavigationService.NavigateAsync(Pages.AddMoviePopupPage);
+            await NavigationService.NavigateAsync(Pages.AddMoviePopupPage, useModalNavigation: true );
         }
 
         private void DelayedSearch()
